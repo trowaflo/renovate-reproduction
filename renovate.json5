@@ -1,0 +1,55 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "group:allNonMajor",
+    ":dependencyDashboard",
+    ":semanticPrefixFixDepsChoreOthers",
+    ":disableRateLimiting",
+    ":semanticCommits"
+  ],
+  "labels": [
+    "git-ops"
+  ],
+  // update docker tag/digest in git-ops description file
+  // Use helm-values manager to catch registry value for Renovate like default one
+  //
+  // [projet]/[env]/helm-museum/description.yaml
+  //
+  // image:
+  //   repository: repo path
+  //   tag: 0.0.0@sha256:0
+  //   registry: url
+  //
+  "helm-values": {
+      "fileMatch": [
+          "^[^\\/\\s]+\/[^\\/\\s]+\/helm-museum\/description\\.yaml$"
+      ]
+  },
+  "packageRules": [
+    // Major docker component on description.yaml
+    {
+      "automerge": false,
+      "commitBody": "BREAKING CHANGE: update component(s) to major version",
+      "extends": [":semanticCommitTypeAll(feat)",":semanticCommitScope(component-discovery)"],
+      "groupName": "discovery component",
+      "labels": ["git-ops","git-ops::component","git-ops::discovery"],
+      "matchManagers": ["helm-values"],
+      "matchFileNames": ["**/discovery/helm-museum/description.yaml"],
+      "matchUpdateTypes": ["major"],
+      "platformAutomerge": false
+    },
+    // Major docker component on description.yaml
+    {
+      "automerge": false,
+      "commitBody": "BREAKING CHANGE: update component(s) to major version",
+      "extends": [":semanticCommitTypeAll(feat)",":semanticCommitScope(component-production)"],
+      "groupName": "production component",
+      "labels": ["git-ops","git-ops::component","git-ops::production"],
+      "matchManagers": ["helm-values"],
+      "matchFileNames": ["**/production/helm-museum/description.yaml"],
+      "matchUpdateTypes": ["major"],
+      "platformAutomerge": false
+    }
+  ]
+}
