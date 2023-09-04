@@ -8,9 +8,6 @@
     ":disableRateLimiting",
     ":semanticCommits"
   ],
-  "labels": [
-    "git-ops"
-  ],
   // update docker tag/digest in git-ops description file
   // Use helm-values manager to catch registry value for Renovate like default one
   //
@@ -29,19 +26,15 @@
   "packageRules": [
     // Major docker component for discovery on description.yaml
     {
-      "automerge": false,
       "extends": [":semanticCommitTypeAll(feat)"],
       "groupName": "discovery",
-      "matchFileNames": ["**/discovery/helm-museum/description.yaml"],
-      "platformAutomerge": false
+      "matchFileNames": ["**/discovery/helm-museum/description.yaml"]
     },
     // Major docker component for production on description.yaml
     {
-      "automerge": false,
       "extends": [":semanticCommitTypeAll(feat)"],
       "groupName": "production",
-      "matchFileNames": ["**/production/helm-museum/description.yaml"],
-      "platformAutomerge": false
+      "matchFileNames": ["**/production/helm-museum/description.yaml"]
     }
   ]
 }
