@@ -30,7 +30,7 @@
     // Major docker component for discovery on description.yaml
     {
       "automerge": false,
-      "extends": [":semanticCommitTypeAll(feat)",":semanticCommitScope(component-discovery)"],
+      "extends": [":semanticCommitScope(component-discovery)"],
       "groupName": "discovery",
       "matchFileNames": ["**/discovery/helm-museum/description.yaml"],
       "platformAutomerge": false
@@ -38,7 +38,7 @@
     // Major docker component for production on description.yaml
     {
       "automerge": false,
-      "extends": [":semanticCommitTypeAll(feat)",":semanticCommitScope(component-production)"],
+      "extends": [":semanticCommitScope(component-production)"],
       "groupName": "production",
       "matchFileNames": ["**/production/helm-museum/description.yaml"],
       "platformAutomerge": false
