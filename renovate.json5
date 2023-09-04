@@ -27,28 +27,20 @@
       ]
   },
   "packageRules": [
-    // Major docker component on description.yaml
+    // Major docker component for discovery on description.yaml
     {
       "automerge": false,
-      "commitBody": "BREAKING CHANGE: update component(s) to major version",
       "extends": [":semanticCommitTypeAll(feat)",":semanticCommitScope(component-discovery)"],
-      "groupName": "discovery component",
-      "labels": ["git-ops","git-ops::component","git-ops::discovery"],
-      "matchManagers": ["helm-values"],
+      "groupName": "discovery",
       "matchFileNames": ["**/discovery/helm-museum/description.yaml"],
-      "matchUpdateTypes": ["major"],
       "platformAutomerge": false
     },
-    // Major docker component on description.yaml
+    // Major docker component for production on description.yaml
     {
       "automerge": false,
-      "commitBody": "BREAKING CHANGE: update component(s) to major version",
       "extends": [":semanticCommitTypeAll(feat)",":semanticCommitScope(component-production)"],
-      "groupName": "production component",
-      "labels": ["git-ops","git-ops::component","git-ops::production"],
-      "matchManagers": ["helm-values"],
+      "groupName": "production",
       "matchFileNames": ["**/production/helm-museum/description.yaml"],
-      "matchUpdateTypes": ["major"],
       "platformAutomerge": false
     }
   ]
