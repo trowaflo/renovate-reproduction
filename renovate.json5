@@ -19,13 +19,13 @@
   "packageRules": [
     // Major docker component for discovery on description.yaml
     {
-      "extends": [":semanticCommitTypeAll(feat)"],
+      "extends": [":semanticCommitTypeAll(feat)",":semanticCommitScope(discovery)"],
       "groupName": "discovery",
       "matchFileNames": ["**/discovery/helm-museum/description.yaml"]
     },
     // Major docker component for production on description.yaml
     {
-      "extends": [":semanticCommitTypeAll(feat)"],
+      "extends": [":semanticCommitTypeAll(feat)",":semanticCommitScope(production)"],
       "groupName": "production",
       "matchFileNames": ["**/production/helm-museum/description.yaml"]
     }
