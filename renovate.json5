@@ -1,29 +1,16 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-
-  // update docker tag/digest in git-ops description file
-  // Use helm-values manager to catch registry value for Renovate like default one
-  //
-  // [projet]/[env]/helm-museum/description.yaml
-  //
-  // image:
-  //   repository: repo path
-  //   tag: 0.0.0@sha256:0
-  //   registry: url
-  //
   "helm-values": {
       "fileMatch": [
           "^[^\\/\\s]+\/[^\\/\\s]+\/helm-museum\/description\\.yaml$"
       ]
   },
   "packageRules": [
-    // Major docker component for discovery on description.yaml
     {
       "extends": [":semanticCommitTypeAll(feat)"],
       "groupName": "discovery",
       "matchFileNames": ["**/discovery/helm-museum/description.yaml"]
     },
-    // Major docker component for production on description.yaml
     {
       "extends": [":semanticCommitTypeAll(feat)"],
       "groupName": "production",
