@@ -7,12 +7,12 @@
   },
   "packageRules": [
     {
-      "extends": [":semanticCommitTypeAll(feat)"],
+      "extends": [":semanticCommitType(feat)"],
       "groupName": "discovery",
       "matchFileNames": ["**/discovery/helm-museum/description.yaml"]
     },
     {
-      "extends": [":semanticCommitTypeAll(feat)"],
+      "extends": [":semanticCommitType(feat)"],
       "groupName": "production",
       "matchFileNames": ["**/production/helm-museum/description.yaml"]
     }
