@@ -1,13 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended",
-    "group:allNonMajor",
-    ":dependencyDashboard",
-    ":semanticPrefixFixDepsChoreOthers",
-    ":disableRateLimiting",
-    ":semanticCommits"
-  ],
+
   // update docker tag/digest in git-ops description file
   // Use helm-values manager to catch registry value for Renovate like default one
   //
