@@ -1,4 +1,4 @@
 image:
   repository: kubernetesui/dashboard
-  tag: 0.0.0@sha256:0
+  tag: v2.7.0@sha256:2e500d29e9d5f4a086b908eb8dfe7ecac57d2ab09d65b24f588b1d449841ef93
   registry: registry.hub.docker.com
